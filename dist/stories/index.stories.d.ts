@@ -4,14 +4,9 @@ declare const _default: {
     title: string;
     component: string;
     argTypes: {
-        title: {
+        actions: {
             control: string;
-        };
-        counter: {
-            control: string;
-        };
-        textColor: {
-            control: string;
+            description: string;
         };
     };
 };
@@ -22,12 +17,7 @@ interface Story<T> {
     argTypes?: Record<string, unknown>;
 }
 interface ArgTypes {
-    title?: string;
-    counter?: number;
-    textColor?: string;
-    slot?: TemplateResult;
+    actions?: string;
 }
 export declare const Regular: Story<ArgTypes>;
-export declare const CustomTitle: Story<ArgTypes>;
-export declare const CustomCounter: Story<ArgTypes>;
-export declare const SlottedContent: Story<ArgTypes>;
+export declare const CustomActions: Story<ArgTypes>;

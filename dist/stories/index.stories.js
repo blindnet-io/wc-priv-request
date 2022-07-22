@@ -4,34 +4,18 @@ export default {
     title: 'BldnPrivRequest',
     component: 'bldn-priv-request',
     argTypes: {
-        title: { control: 'text' },
-        counter: { control: 'number' },
-        textColor: { control: 'color' },
+        actions: {
+            control: 'text',
+            description: 'JSON list of [actions](https://github.com/blindnet-io/product-management/blob/main/refs/schemas/priv/json-schema/priv-terms.schema.json) to include in the component.',
+        },
     },
 };
-const Template = ({ title = 'Hello world', counter = 5, textColor, slot, }) => html `
-  <bldn-priv-request
-    style="--bldn-priv-request-text-color: ${textColor || 'black'}"
-    .title=${title}
-    .counter=${counter}
-  >
-    ${slot}
-  </bldn-priv-request>
+const Template = ({ actions }) => html `
+  <bldn-priv-request actions="${actions || ''}"></bldn-priv-request>
 `;
 export const Regular = Template.bind({});
-export const CustomTitle = Template.bind({});
-CustomTitle.args = {
-    title: 'My title',
-};
-export const CustomCounter = Template.bind({});
-CustomCounter.args = {
-    counter: 123456,
-};
-export const SlottedContent = Template.bind({});
-SlottedContent.args = {
-    slot: html `<p>Slotted content</p>`,
-};
-SlottedContent.argTypes = {
-    slot: { table: { disable: true } },
+export const CustomActions = Template.bind({});
+CustomActions.args = {
+    actions: '["ACCESS","DELETE","TRANSPARENCY"]',
 };
 //# sourceMappingURL=index.stories.js.map
